@@ -1,7 +1,7 @@
 # piserver-vpnrouter
 Piserver with vpnrouter pihole builtin with nordvpn and password manager and entire network protection
 
-MAKE SURE YOU VIEW THIS IN RAW FORMAT!!!! GITHUB IS BAD AT FORMATTING
+MAKE SURE YOU VIEW THIS IN RAW FORMAT!
 
 
 step 1:
