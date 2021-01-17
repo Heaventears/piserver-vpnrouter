@@ -153,4 +153,39 @@ echo "done"
 #watch -n 0 "sudo iptables -nvL"
 -------------------------------------------------------------------------
 
+Enable IP Forwarding
+sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+
+Create rc.local service
+sudo nano /etc/systemd/system/rc-local.service
+----------------------------------------------------
+[Unit]
+Description=/etc/rc.local Compatibility
+ConditionPathExists=/etc/rc.local
+
+
+[Service]
+Type=forking
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99
+
+
+[Install]
+WantedBy=multi-user.target
+------------------------------------------------------------
+Create rc.local script
+sudo nano /etc/rc.local
+-------------------------------------------------------
+#!/bin/sh -e
+sudo bash /etc/openvpn/iptables.sh &
+sleep 10
+sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+sudo bash /etc/openvpn/connect.sh &
+
+exit 0
+----------------------------------------------------------------------------------------
+
 sudo chmod +x /etc/rc.local
