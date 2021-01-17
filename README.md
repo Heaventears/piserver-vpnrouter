@@ -1,5 +1,7 @@
 # piserver-vpnrouter
-Piserver with vpnrouter builtin with nordvpn
+Piserver with vpnrouter pihole builtin with nordvpn and password manager and entire network protection
+
+MAKE SURE YOU VIEW THIS IN RAW FORMAT!!!! GITHUB IS BAD AT FORMATTING
 
 
 step 1:
@@ -205,4 +207,23 @@ Ping should stop on remote box.
 
 If all is working, enable the service and reboot. IPTables are assigned each boot, and then the VPN connects. This allows troubleshooting or maintenance by commenting out rc.local calls and boot the server without IPTables restrictions.
 
+step 12 OPTIONAL getting all containers their own ip ( only if you want each container a seperate ip for easy management otherwise IGNORE THIS )
 
+instead of netplan yaml use the openmedia one 
+
+https://www.youtube.com/watch?v=5XD-fHDmNtg
+
+
+step 13
+
+add pihole
+
+use this guide https://www.youtube.com/watch?v=AFm6nd6GSJQ&list=PLhMI0SExGwfAU-UMeKxd1Lu5_a60AlA9N&index=9
+
+and install what ever you wish from here https://www.youtube.com/playlist?list=PLhMI0SExGwfAU-UMeKxd1Lu5_a60AlA9N
+
+( IF YOU WISH TO HAVE A FREE BITWARDEN PASSWORD MANAGER THEN DONT USE THE ONE IN DBTECH! IT REQUIRES DOMAIN PURCHASE USE THIS INSTEAD! )
+
+https://www.youtube.com/watch?v=eCJA1F72izc
+
+Now that you got a working pi server with vpn protection for your entire network and pihole and dns server and password manager and NAS server all in one! enjoy 
