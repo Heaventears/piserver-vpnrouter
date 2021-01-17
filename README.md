@@ -189,3 +189,20 @@ exit 0
 ----------------------------------------------------------------------------------------
 
 sudo chmod +x /etc/rc.local
+Enable/Start rc.local service
+sudo systemctl enable rc-local
+sudo systemctl start rc-local.service
+
+TO TEST
+sudo bash /etc/openvpn/iptables.sh
+sudo bash /etc/openvpn/connect.sh
+
+Point another device’s default gateway at your VPN server. Ping google.com
+
+CTRL-C to kill OpenVPN
+
+Ping should stop on remote box.
+
+If all is working, enable the service and reboot. IPTables are assigned each boot, and then the VPN connects. This allows troubleshooting or maintenance by commenting out rc.local calls and boot the server without IPTables restrictions.
+
+
