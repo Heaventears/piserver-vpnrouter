@@ -68,3 +68,17 @@ go to plugins add fail 2 ban and openvpn and iscsi targets and whatever else flo
 reboot ur pi
 
 DO NOT OPEN THE OPENVPN MENU! we not going to use it at all! we only installed it for the dependancy and library.
+
+step 11 
+
+SSh into the pi
+
+time to navigate to /etc/openvpn
+
+Download OVPN Config files (NordVPN)
+cd /etc/openvpn
+sudo wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
+sudo unzip ovpn.zip
+
+
+sudo chmod +x /etc/rc.local
