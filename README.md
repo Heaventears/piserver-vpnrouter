@@ -97,6 +97,7 @@ Password
 
 replace #.#.#.# with pi ip
 sudo nano /etc/openvpn/iptables.sh
+--------------------------------------------------------------
 #!/bin/bash
 # Flush
 iptables -t nat -F
