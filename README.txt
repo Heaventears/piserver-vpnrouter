@@ -1,5 +1,5 @@
 # piserver-vpnrouter
-Piserver with vpnrouter pihole builtin with nordvpn and password manager and entire network protection
+Piserver with vpnrouter pihole builtin with nordvpn and password manager and entire network protection Now with retropie also! wohooo
 
 MAKE SURE YOU VIEW THIS IN RAW FORMAT!
 
@@ -228,3 +228,89 @@ and install what ever you wish from here https://www.youtube.com/playlist?list=P
 https://www.youtube.com/watch?v=eCJA1F72izc
 
 Now that you got a working pi server with vpn protection for your entire network and pihole and dns server and password manager and NAS server all in one! enjoy 
+
+Step 14 optinal Retropie emulator games!
+
+SSH into ur new nas all in one and time to add some gameing capability couse why not.
+
+inside ur nas we wanna add some monitor capability couse that usually gets removed by openmedia installation.
+cd into /boot
+sudo nano config.txt
+
+check for HDMI safe 1
+uncomment that line
+
+now you can close the ssh connection for now.
+
+open the webbrowser and point it to ur all in one nas and log in with ur admin
+
+go to users
+
+create a new user for retropie ( DO NOT name it retropie but name it games or what ever ) make a group with SAME NAME aka games:games
+give the new user a strong password and give it most of the linux rights except for openmedia sections, ( dont forget input since duuuh we need controller )
+
+once you completed the task. head to ssh and ssh into the new retropie user games as in example.
+
+once inside games in ur home directory add a new folder mkdir retropie
+cd into it
+
+we going to install retropie manually its easier than it sounds.
+
+first do sudo apt update && sudo apt upgrade
+press yes
+
+attention! this next step will only work if you installed with us language local.
+otherwise you need to verify ur local settings to the following. ( if you installed us language then u dont need this )
+LANG=en_US.UTF-8
+LANGUAGE=en_US:en
+LC_CTYPE="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_PAPER="en_US.UTF-8"
+LC_NAME="en_US.UTF-8"
+LC_ADDRESS="en_US.UTF-8"
+LC_TELEPHONE="en_US.UTF-8"
+LC_MEASUREMENT="en_US.UTF-8"
+LC_IDENTIFICATION="en_US.UTF-8"
+LC_ALL=en_US.UTF-8
+
+update-locale
+
+sudo update-locale LC_ALL="en_US.UTF-8"
+
+you can also use sudo raspi-config
+
+wich brings uss to the next task gpu memory we need memory for the emulators.
+sudo raspi-config and go to performance and set gpu memory 512 or 256
+
+next we need some packages for retro pie
+
+sudo apt install git lsb-release
+
+sudo git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+
+cd RetroPie-Setup
+sudo chmod +x retropie_setup.sh
+sudo ./retropie_setup.sh
+
+once ur here just basic install
+when propmted about boot select BOOT TO CONSOLE ( autologin or no login dont matter just boot to console )
+
+once installation finnishes takes about 20 min reboot
+when thats done attach a controller to the usb or keyboard and hdmi
+in ur ssh type emulationstation
+when it boots up follow the instructions and then click menu and settings.
+in settings disable the samba share.
+thats it ur done ;I enjoy
+
+input ur roms here /RetroPie/roms (or /home/pi/RetroPie/roms
+and in correct folder and pew pew
+
+if you wanna send the monitor over the network just export the display to the ip number of ur screen server and you can game remotely without hdmi
+or just use hdmi and bluetooth controller ;i
+
+enjoy
+
